@@ -9,7 +9,8 @@ const App = () => {
   const stockfishRef = useRef(null);
 
   useEffect(() => {
-    stockfishRef.current = new Worker(process.env.PUBLIC_URL + '/stockfish.js');
+    // Load Stockfish from CDN
+    stockfishRef.current = new Worker('https://cdnjs.cloudflare.com/ajax/libs/stockfish.js/10.0.2/stockfish.js');
     stockfishRef.current.postMessage('uci');
   }, []);
 
